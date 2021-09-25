@@ -15,6 +15,6 @@ export const Container = styled.div`
   align-items: center;
 
   & + div {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 `;

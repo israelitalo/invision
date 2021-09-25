@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import validate from 'validate.js';
 import { SeparetorLine } from '../Separetor';
 import { ButtonGoogle } from '../ButtonGoogle';
+import { ButtonSubmit } from '../ButtonSubmit';
 
 interface SignInFormData {
     email: string;
@@ -95,11 +96,15 @@ export const SigninForm = () => {
 
                 <Link className="forgot-password" to="/signup">Forgot password?</Link>
 
-                <button type="submit">Sign in</button>
+                <ButtonSubmit title='Sign in' />
 
-                <SeparetorLine />
             </Form>
+
+            <SeparetorLine />
+
             <ButtonGoogle title="Sign in with Google" />
+
+            <p>New <strong>Invision?</strong><Link to="/signup">Create Account</Link></p>
         </Container>
     );
 };
