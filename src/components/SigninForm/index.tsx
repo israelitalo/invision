@@ -1,7 +1,10 @@
 import React, { useState, ChangeEvent } from 'react';
 import { Input } from '../Input';
-import { Form } from './styles';
+import { Form, Container } from './styles';
+import { Link } from 'react-router-dom';
 import validate from 'validate.js';
+import { SeparetorLine } from '../Separetor';
+import { ButtonGoogle } from '../ButtonGoogle';
 
 interface SignInFormData {
     email: string;
@@ -65,31 +68,38 @@ export const SigninForm = () => {
     const hasError = (field: any) => formState.errors[field] ? true : false;
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Input
-                error={hasError('email')}
-                helperText={hasError('email') ? formState.errors.email[0] : null}
-                label="Email"
-                name="email"
-                //type="email"
-                variant="standard"
-                fullWidth
-                value={formState.values.email}
-                onChange={handleChange}
-            />
+        <Container>
+            <Form onSubmit={handleSubmit}>
+                <Input
+                    error={hasError('email')}
+                    helperText={hasError('email') ? formState.errors.email[0] : null}
+                    label="Email"
+                    name="email"
+                    variant="standard"
+                    fullWidth
+                    value={formState.values.email}
+                    onChange={handleChange}
+                />
 
-            <Input
-                error={hasError('password')}
-                helperText={hasError('password') ? formState.errors.password[0] : null}
-                label="Password"
-                name="password"
-                type="password"
-                variant="standard"
-                fullWidth
-                value={formState.values.password}
-                onChange={handleChange}
-            />
-            <button type="submit">Add</button>
-        </Form>
+                <Input
+                    error={hasError('password')}
+                    helperText={hasError('password') ? formState.errors.password[0] : null}
+                    label="Password"
+                    name="password"
+                    type="password"
+                    variant="standard"
+                    fullWidth
+                    value={formState.values.password}
+                    onChange={handleChange}
+                />
+
+                <Link className="forgot-password" to="/signup">Forgot password?</Link>
+
+                <button type="submit">Sign in</button>
+
+                <SeparetorLine />
+            </Form>
+            <ButtonGoogle title="Sign in with Google" />
+        </Container>
     );
 };

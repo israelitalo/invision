@@ -1,7 +1,7 @@
 import { TextField } from '@material-ui/core';
 import { StandardTextFieldProps } from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
-import { useStyles } from './styles';
+import { useStyles, Container } from './styles';
 import { colors } from '../../styles/colors';
 
 const InputCustom = withStyles({
@@ -50,9 +50,11 @@ const InputCustom = withStyles({
 export const Input = ({ ...rest }: StandardTextFieldProps) => {
     const classes = useStyles();
     return (
-        <InputCustom
-            {...rest}
-            className={classes.root}
-        />
+        <Container>
+            <InputCustom
+                {...rest}
+                className={classes.root}
+            />
+        </Container>
     );
 };
