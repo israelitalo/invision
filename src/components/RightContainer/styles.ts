@@ -7,7 +7,7 @@ export const Container = styled.div`
     align-items: center;
     height: 100%;
     background: var(--white);
-    padding: 4rem 5rem;
+    padding: 1.5rem 5rem;
 
     @media (max-width: 768px){
         padding: 3rem 5rem 8rem 5rem;
@@ -24,13 +24,13 @@ export const Container = styled.div`
     .title{
         color: var(--grey);
         text-align: center;
-        margin-top: 2.5rem;
+        margin-top: 2rem;
     }
 
     .content{
         width: 100%;
         //height: 100%;
-        margin-top: 2.5rem;
+        margin-top: 1.5rem;
         display: flex;
         justify-content: center;
     }

@@ -20,6 +20,17 @@ export const Container = styled.div`
         margin-left: 0.2rem;
         font-size: 14px;
     }
+
+    .container-terms {
+        display: flex;
+        align-items: center;
+
+        margin-bottom: 1.5rem;
+
+        p {
+            margin: 0 0.3rem;
+        }
+    }
 `;
 
 export const Form = styled.form`

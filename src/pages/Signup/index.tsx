@@ -1,6 +1,7 @@
 import { LeftContainer } from '../../components/LeftContainer';
 import { RightContainer } from '../../components/RightContainer';
 import { SigninForm } from '../../components/SigninForm';
+import { SignupForm } from '../../components/SignupForm';
 
 import { Container } from './styles';
 
@@ -11,7 +12,7 @@ export const Signup = () => {
             <RightContainer
                 title="Getting Started"
             >
-                <SigninForm />
+                <SignupForm />
             </RightContainer>
         </Container>
     );
