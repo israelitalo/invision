@@ -6,6 +6,7 @@ import validate from 'validate.js';
 import { SeparetorLine } from '../Separetor';
 import { ButtonGoogle } from '../ButtonGoogle';
 import { ButtonSubmit } from '../ButtonSubmit';
+import { emailSchema, passwordSchema } from '../../constants/schemasValidations/auth';
 
 interface SignInFormData {
     email: string;
@@ -13,17 +14,8 @@ interface SignInFormData {
 };
 
 const schema = {
-    email: {
-        presence: { allowEmpty: false, message: '^*Este campo não pode ser vazio' },
-        email: { message: '^O e-mail está incorreto' },
-    },
-    password: {
-        presence: { allowEmpty: false, message: '^*Este campo não pode ser vazio' },
-        length: {
-            minimum: 6,
-            message: "^A senha não pode ter menos de 6 caracteres"
-        }
-    }
+    email: emailSchema,
+    password: passwordSchema
 };
 
 export const SigninForm = () => {
@@ -62,8 +54,8 @@ export const SigninForm = () => {
         }));
 
         if (errors) return;
+        
 
-        console.log('submit');
     };
 
     const hasError = (field: any) => formState.errors[field] ? true : false;
@@ -80,6 +72,7 @@ export const SigninForm = () => {
                     fullWidth
                     value={formState.values.email}
                     onChange={handleChange}
+                    data-testid="email-login"
                 />
 
                 <Input
@@ -92,6 +85,7 @@ export const SigninForm = () => {
                     fullWidth
                     value={formState.values.password}
                     onChange={handleChange}
+                    data-testid="passwordlogin"
                 />
 
                 <Link className="forgot-password" to="/signup">Forgot password?</Link>

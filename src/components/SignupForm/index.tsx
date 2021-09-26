@@ -6,6 +6,7 @@ import validate from 'validate.js';
 import { SeparetorLine } from '../Separetor';
 import { ButtonGoogle } from '../ButtonGoogle';
 import { ButtonSubmit } from '../ButtonSubmit';
+import { emailSchema, nameSchema, passwordSchema } from '../../constants/schemasValidations/auth';
 
 interface SignupFormData {
     email: string;
@@ -14,20 +15,9 @@ interface SignupFormData {
 };
 
 const schema = {
-    email: {
-        presence: { allowEmpty: false, message: '^*Este campo não pode ser vazio' },
-        email: { message: '^O e-mail está incorreto' },
-    },
-    password: {
-        presence: { allowEmpty: false, message: '^*Este campo não pode ser vazio' },
-        length: {
-            minimum: 6,
-            message: "^A senha não pode ter menos de 6 caracteres"
-        }
-    },
-    name: {
-        presence: { allowEmpty: false, message: '^*Este campo não pode ser vazio' }
-    }
+    email: emailSchema,
+    password: passwordSchema,
+    name: nameSchema
 };
 
 export const SignupForm = () => {
@@ -67,8 +57,6 @@ export const SignupForm = () => {
         }));
 
         if (errors) return;
-
-        console.log('submit');
     };
 
     const hasError = (field: any) => formState.errors[field] ? true : false;
@@ -85,6 +73,7 @@ export const SignupForm = () => {
                     fullWidth
                     value={formState.values.name}
                     onChange={handleChange}
+                    data-testid="name-signup"
                 />
 
                 <Input
@@ -96,6 +85,7 @@ export const SignupForm = () => {
                     fullWidth
                     value={formState.values.email}
                     onChange={handleChange}
+                    data-testid="email-signup"
                 />
 
                 <Input
@@ -108,6 +98,7 @@ export const SignupForm = () => {
                     fullWidth
                     value={formState.values.password}
                     onChange={handleChange}
+                    data-testid="password-signup"
                 />
 
                 <ButtonSubmit title='Sign up' />

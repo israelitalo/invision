@@ -14,11 +14,11 @@ export const LeftContainer = () => {
                 showThumbs={false}
                 showArrows={false}
             >
-                <div style={{ height: '100%' }}>
-                    <img src={ImageOne} alt="image1" style={{ height: 'auto', objectFit: 'cover' }} />
+                <div className="container-image">
+                    <img src={ImageOne} alt="image1" className="image" />
                 </div>
-                <div style={{ height: '100%' }}>
-                    <img src={ImageTwo} alt="image2" style={{ height: 'auto', objectFit: 'cover' }} />
+                <div className="container-image">
+                    <img src={ImageTwo} alt="image2" className="image" />
                 </div>
             </Carousel>
         </Container>
