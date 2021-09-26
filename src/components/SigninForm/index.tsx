@@ -7,6 +7,7 @@ import { SeparetorLine } from '../Separetor';
 import { ButtonGoogle } from '../ButtonGoogle';
 import { ButtonSubmit } from '../ButtonSubmit';
 import { emailSchema, passwordSchema } from '../../constants/schemasValidations/auth';
+import { GoogleLogin } from 'react-google-login';
 
 interface SignInFormData {
     email: string;
@@ -54,11 +55,13 @@ export const SigninForm = () => {
         }));
 
         if (errors) return;
-        
+
 
     };
 
     const hasError = (field: any) => formState.errors[field] ? true : false;
+
+    const responseGoogle = (response: any) => null;
 
     return (
         <Container>
@@ -96,7 +99,20 @@ export const SigninForm = () => {
 
             <SeparetorLine />
 
-            <ButtonGoogle title="Sign in with Google" />
+            <GoogleLogin
+                clientId="617246850621-95f9qhmehd380g2df86pjhrqc84n8nij.apps.googleusercontent.com"
+                render={renderProps => (
+                    <ButtonGoogle
+                        onClick={renderProps.onClick}
+                        disabled={renderProps.disabled}
+                        title="Sign in with Google"
+                    />
+                )}
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+            />
 
             <p>New <strong>Invision?</strong><Link to="/signup">Create Account</Link></p>
         </Container>
